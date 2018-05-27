@@ -1,0 +1,36 @@
+<% if flash[:alert].present? %>
+  <% flash[:alert].each do |msg| %>
+    <h3><%= msg %></h3>
+    <br />
+  <% end %>
+  <br />
+<% end %>
+<%= link_to 'New', new_artist_path %>
+<%= link_to 'Index', artists_path %>
+<% if @artists.present? %>
+  <h1>Artists</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Facebook Link</th>
+        <th>Twitter Link</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @artists.each do |artist| %>
+        <tr>
+          <td><%= artist.name %></td>
+          <td><%= artist.facebook %></td>
+          <td><%= artist.twitter %></td>
+          <td><%= link_to "Show", artist_path(artist) %></td>
+          <td><%= link_to "Delete", artist_path(artist), method: :delete %> </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <h1>No Artist Exist</h1>
+<% end %>

@@ -1,0 +1,12 @@
+<%= form_for @artist do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, { placeholder: "Enter name:" } %>
+  <br />
+  <%= f.label :facebook %>
+  <%= f.text_field :facebook, { placeholder: "Enter facebook link:" } %>
+  <br />
+  <%= f.label :twitter %>
+  <%= f.text_field :twitter, { placeholder: "Enter twitter link:" } %>
+  <br />
+  <%= f.submit "Save" %>
+<% end %>
